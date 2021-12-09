@@ -66,12 +66,11 @@ const cars = [
 
 const gasolineCars = cars.filter( (auto) => auto.type === 'Benzina'||auto.type === 'benzina');
 
-const dieselCars = cars.filter( (auto) => 
-    auto.type === 'diesel'||auto.type === 'benzina'
-);
+const dieselCars = cars.filter( (auto) => auto.type === 'diesel'||auto.type === 'benzina');
 
 const otherCars = cars.filter( (auto) => {
-    return (auto.type !== 'diesel' && auto.type !== 'Diesel') && (auto.type !== 'Benzina' && auto.type !== 'benzina');
+    return (auto.type !== 'diesel' && auto.type !== 'Diesel') && 
+           (auto.type !== 'Benzina' && auto.type !== 'benzina');
 });
 
 console.log('Auto a benzina');
