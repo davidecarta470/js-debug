@@ -56,7 +56,7 @@ const cars = [
         manufacturer: 'Seat',
         model: 'Ibiza',
         type: 'metano'
-    }
+    },
     {
         manufacturer: 'Audi',
         model: 'R8',
@@ -64,23 +64,40 @@ const cars = [
     },
 ];
 
-const gasolineCars = cars.filter( (auto) >= auto.type === 'benzina');
+const gasolineCars = cars.filter( (auto) => auto.type === 'Benzina'||auto.type === 'benzina');
 
-const dieselCars = cars.filter( (auto) => {
-    auto.type === 'diesel';
-});
+const dieselCars = cars.filter( (auto) => 
+    auto.type === 'diesel'||auto.type === 'benzina'
+);
 
 const otherCars = cars.filter( (auto) => {
-    return auto.type !== 'benzina' || auto.type !== 'diesel';
+    return (auto.type !== 'diesel' && auto.type !== 'Diesel') && (auto.type !== 'Benzina' && auto.type !== 'benzina');
 });
 
 console.log('Auto a benzina');
+console.log('-------------------------');
+gasolineCars.forEach(gasolineCar => {
+    console.log(gasolineCar.manufacturer,gasolineCar.model)
+    
+});
 console.log('*******************************');
-console.log(gasolineCars);
-
+console.log('*******************************');
+console.log('*******************************');
 console.log('Auto a diesel');
+console.log('-------------------------');
+dieselCars.forEach(dieselCar=> {
+    console.log(dieselCar.manufacturer,dieselCar.model)
+});
 console.log('*******************************');
-console.log(dieselCars);
-
+console.log('*******************************');
+console.log('*******************************');
 console.log('Tutte le altre auto');
-console.log(otherCars);
+console.log('-------------------------');
+otherCars.forEach(otherCar => {
+    console.log(otherCar.manufacturer,otherCar.model)
+    
+});
+
+
+// errori :virgola prima dell'ultimo elemento dell'array   ;aggiungere condizione auto  benzina e diesel  con la prima maiuscola;
+// arrowfunction l'= va prima del > ; mancano i cicli per visualizzare le auto
