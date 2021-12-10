@@ -64,13 +64,20 @@ const cars = [
     },
 ];
 
-const gasolineCars = cars.filter( (auto) => auto.type === 'Benzina'||auto.type === 'benzina');
 
-const dieselCars = cars.filter( (auto) => auto.type === 'diesel'||auto.type === 'benzina');
+function giveUpperCase(string){
+        let rest=string.substring(1)
+        return string.charAt(0).toUpperCase()+rest
+}
+const firstPowerSupply = 'benzina'
+const gasolineCars = cars.filter( (auto) =>
+    auto.type === firstPowerSupply || auto.type === giveUpperCase(firstPowerSupply))
+const secondPowerSupply = 'diesel'
+const dieselCars = cars.filter( (auto) => auto.type === secondPowerSupply || auto.type === giveUpperCase(secondPowerSupply) );
 
 const otherCars = cars.filter( (auto) => {
-    return (auto.type !== 'diesel' && auto.type !== 'Diesel') && 
-           (auto.type !== 'Benzina' && auto.type !== 'benzina');
+    return (auto.type !== firstPowerSupply && auto.type !== giveUpperCase(firstPowerSupply)) && 
+           (auto.type !== secondPowerSupply && auto.type !== giveUpperCase(secondPowerSupply));
 });
 
 console.log('Auto a benzina');
@@ -96,7 +103,6 @@ otherCars.forEach(otherCar => {
     console.log(otherCar.manufacturer,otherCar.model)
     
 });
-
 
 // errori :virgola prima dell'ultimo elemento dell'array   ;aggiungere condizione auto  benzina e diesel  con la prima maiuscola;
 // arrowfunction l'= va prima del > ; mancano i cicli per visualizzare le auto
